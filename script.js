@@ -1,0 +1,22 @@
+$(function(){
+    $(".hide-when-collapsed").removeClass("hide").addClass("show");
+    $(".menu-btn").click((e)=>{
+        $("#menu").toggleClass("collapsed");
+        if(!$("#menu").hasClass("collapsed")){
+            $(".hide-when-collapsed").animate({
+                opacity:0
+            },400,()=>{
+                $(".hide-when-collapsed").removeClass("hide").addClass("show");
+                $(".hide-when-collapsed").animate({
+                    opacity:1
+                },100)
+            })
+        }
+        else{
+            $(".hide-when-collapsed").removeClass("show").addClass("hide");
+        }
+    })
+    $("#menu-header").hover((e)=>{
+        $("#menu").toggleClass("bigger");
+    })
+})
