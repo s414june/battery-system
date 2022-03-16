@@ -22,8 +22,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400&display=swap" rel="stylesheet">
 
+    <link rel="stylesheet" href="./range-plugin/wrunner-default-theme.css">
+    <script src="./range-plugin/wrunner-jquery.js"></script>
+
     <link rel="stylesheet" href="style.css">
     <script src="./script.js"></script>
+
 </head>
 
 <body>
@@ -165,8 +169,47 @@
             </div>
         </header>
         <section class="w-100 position-relative" id="system-main">
-            <div class="w-100 py-5 position-absolute" style="background-color: rgba(var(--bs-primary-rgb),0.75);">
-                <h3 class="ps-5 ms-2 pb-5 mb-5 text-white">系統儀錶板</h3>
+            <div class="w-100" style="background-color: rgba(var(--bs-primary-rgb),0.75);">
+                <h5 class="p-3 ms-2 text-white">費率管理</h5>
+            </div>
+            <div class="mx-4">
+                <ul class="nav border-bottom">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">一般費率設定</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-secondary" href="#">特殊費率設定</a>
+                    </li>
+                </ul>
+                <div class="row mx-1">
+                    <div class="card my-3 col-xxl-6 shadow-sm">
+                        <div class="card-body position-relative">
+                            <h5 class="card-title text-secondary">搜尋</h5>
+                            <div class="row mx-1">
+                                <div class="d-flex align-items-center mb-3 col-xl-6 col-lg-12 col-md-6 pe-2">
+                                    <div>
+                                        <label style="flex-grow: 2;">場域</label>
+                                    </div>
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control" id="floatingInput" placeholder="地點">
+                                        <label for="floatingInput">場域</label>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center mb-3 col-xl-6 col-lg-12 col-md-6 pe-2 position-relative">
+                                    <div>
+                                        <label for="floatingInput" class="">費率</label>
+                                    </div>
+                                    <div class="d-flex w-100">
+                                        <div class="my-jquery-slider w-75"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="w-100 text-end">
+                                <a href="#" class="btn btn-primary my-2">搜尋</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
     </div>
