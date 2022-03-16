@@ -3,18 +3,6 @@ $(function () {
     if ($(window).width() < 991) {
         collapseMenu();
     }
-    $('.my-jquery-slider').wRunner({
-        type: 'range',
-        limits: {
-            minLimit: 0,
-            maxLimit: 100
-        },
-        rangeValue: {
-            minValue: 30,
-            maxValue: 90,
-        },
-        step: 1,
-    })
 
     $(".hide-when-collapsed").removeClass("hide").addClass("show");
     $(".menu-btn").click((e) => {

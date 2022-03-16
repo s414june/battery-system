@@ -195,7 +195,8 @@
                                         <label for="floatingInput">場域</label>
                                     </div>
                                 </div>
-                                <div class="d-flex align-items-center mb-3 col-xl-6 col-lg-12 col-md-6 pe-2 position-relative">
+                                <div
+                                    class="d-flex align-items-center mb-3 col-xl-6 col-lg-12 col-md-6 pe-2 position-relative">
                                     <div>
                                         <label for="floatingInput" class="">費率</label>
                                     </div>
@@ -214,5 +215,19 @@
         </section>
     </div>
 </body>
+<script>
+    $('.my-jquery-slider').wRunner({
+        type: 'range',
+        limits: {
+            minLimit: 0,
+            maxLimit: 100
+        },
+        rangeValue: {
+            minValue: 30,
+            maxValue: 90,
+        },
+        step: 1,
+    })
+</script>
 
 </html>
