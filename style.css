@@ -23,6 +23,7 @@ button {
 #menu {
   width: 280px;
   height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
   z-index: 5;
   background-color: var(--bs-primary);
   transition: 0.5s;
