@@ -45,152 +45,12 @@
 
 <body>
     <header>
-        <div id="menu" class="d-flex flex-column shadow">
-            <div id="desktopMenu">
-                <div class="d-flex px-1 py-3 align-items-center" id="menu-header">
-                    <div class="menu-btn" id="desktopMenuBtn">
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                    </div>
-                    <div class="d-flex align-items-center text-center title-container">
-                        <a href="./index.html" class="ps-md-0 ps-2">
-                            <i class="fa-solid fa-charging-station p-2 fa-lg text-primary" style="color:var(--bs-teal)"></i>
-                        </a>
-                        <a href="./index.html">
-                            <p class="m-0 text-primary title hide-when-collapsed">充電樁管理系統</p>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <!-- Add .accordion-flush to remove the default background-color -->
-            <div class="accordion accordion-flush mt-1 hide-when-collapsed" id="menu-tree">
-                <div class="accordion-item no-arrow">
-                    <h2 class="accordion-header" id="headingOne">
-                        <a href="./index.html">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#collapseNowArrow" aria-expanded="false"
-                                aria-controls="collapseNowArrow">
-                                儀錶板
-                            </button>
-                        </a>
-                    </h2>
-                    <div id="collapseNowArrow" class="accordion-collapse collapse" aria-labelledby="headingOne"
-                        data-bs-parent="#menu-tree">
-                    </div>
-                </div>
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="headingTwo">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                            系統管理
-                        </button>
-                    </h2>
-                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
-                        data-bs-parent="#menu-tree">
-                        <div class="accordion-body">
-                            <ul class="list-group">
-                                <a href="" class="link-secondary">
-                                    <li class="list-group-item">帳號管理</li>
-                                </a>
-                                <a href="" class="link-secondary">
-                                    <li class="list-group-item">場域管理</li>
-                                </a>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="accordion-item no-arrow">
-                    <h2 class="accordion-header" id="">
-                        <a href="">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#collapseNowArrow" aria-expanded="false"
-                                aria-controls="collapseNowArrow">
-                                <a href="" class="link-light">會員管理</a>
-                            </button>
-                        </a>
-                    </h2>
-                </div>
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="headingThree">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                            充電樁管理
-                        </button>
-                    </h2>
-                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
-                        data-bs-parent="#menu-tree">
-                        <div class="accordion-body">
-                            <ul class="list-group">
-                                <a href="./charging.html" class="link-secondary">
-                                    <li class="list-group-item">單一電樁管理</li>
-                                </a>
-                                <a href="./charging-group.html" class="link-secondary">
-                                    <li class="list-group-item">群組管理</li>
-                                </a>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                            費率管理
-                        </button>
-                    </h2>
-                    <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingThree"
-                        data-bs-parent="#menu-tree">
-                        <div class="accordion-body">
-                            <ul class="list-group">
-                                <a href="./fee.html" class="link-secondary">
-                                    <li class="list-group-item">一般費率設定</li>
-                                </a>
-                                <a href="./fee-special.html" class="link-secondary">
-                                    <li class="list-group-item">特殊費率設定</li>
-                                </a>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="accordion-item no-arrow">
-                    <h2 class="accordion-header" id="">
-                        <a href="" class="link-light">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#collapseNowArrow" aria-expanded="false"
-                                aria-controls="collapseNowArrow">
-                                充電紀錄</a>
-                        </button>
-                        </a>
-                    </h2>
-                </div>
-                <div class="accordion-item no-arrow">
-                    <h2 class="accordion-header" id="">
-                        <a href="" class="link-light">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#collapseNowArrow" aria-expanded="false"
-                                aria-controls="collapseNowArrow">
-                                <a href="" class="link-light">分析報表</a>
-                            </button>
-                        </a>
-                    </h2>
-                </div>
-            </div>
-            <div id="account" class="text-center shadow-sm mt-auto p-2">
-                <div class="hide-when-collapsed">
-                    <small class="m-0 d-block">Hi, <span>June</span></small>
-                    <button class="btn btn-sm btn-outline-primary m-1" style="line-height: 1.2;">登出</button>
-                </div>
-            </div>
-        </div>
-        <div class="position-absolute py-3 px-1 collapsed" id="mobileMenu">
-            <div class="menu-btn">
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
-        </div>
     </header>
+    <script>
+        $.get('header.html', function (response) {
+            $('header').html(response);
+        });
+    </script>
     <div class="d-flex">
         <div id="menu-holder" style="z-index: -1;"></div>
         <section class="position-relative flex-grow-1" id="system-main">
@@ -207,7 +67,7 @@
                     </li>
                 </ul>
                 <!-- <div class="row my-3 justify-content-center"> -->
-                    <!-- <div class="col">
+                <!-- <div class="col">
                         <div class="card shadow-sm">
                             <div class="card-body position-relative">
                                 <h5 class="card-title text-secondary">搜尋</h5>
@@ -227,12 +87,12 @@
                                             <label for="floatingInput" class="">費率</label>
                                         </div>
                                         <div class="w-100"> -->
-                                            <!-- <div class="slider w-75"></div>
+                <!-- <div class="slider w-75"></div>
                                             <div class="d-flex slider-input-container w-75 justify-content-between">
                                                 <input type="number" class="form-control min" value="0" min="0" max="100">
                                                 <input type="number" class="form-control max" value="100" min="0" max="100">
                                             </div> -->
-                                            <!-- <div>
+                <!-- <div>
                                                 <input type="range" class="form-range" min="0" max="100"
                                                     id="dollarRange">
                                                 <input type="number" class="form-control dollar" value="50" min="0"
@@ -246,7 +106,7 @@
                                 </div>
                             </div>
                         </div> -->
-                    <!-- </div> -->
+                <!-- </div> -->
                 <!-- </div> -->
                 <div class="row my-3 justify-content-center">
                     <div class="col">
@@ -254,7 +114,8 @@
                             <div class="card-body position-relative">
                                 <div class="d-flex justify-content-between mb-3">
                                     <h5 class="card-title text-secondary">一般費率</h5>
-                                    <button class="btn btn-primary">+ 新增費率</button>
+                                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Modal">+
+                                        新增費率</button>
                                 </div>
                                 <table id="dollarTable" class="table table-striped">
                                     <thead>
@@ -339,6 +200,49 @@
             </div>
         </section>
     </div>
+    <!-- Modal -->
+    <div class="modal fade" id="Modal" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title" id="ModalLabel">新增費率</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3 row">
+                        <label for="place" class="col-sm-2 col-form-label">場域</label>
+                        <div class="col-sm-10">
+                            <select class="form-select" aria-label="">
+                                <option selected>民權西</option>
+                                <option value="1">場域2</option>
+                                <option value="2">場域3</option>
+                                <option value="3">場域4</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="fee-special" class="col-sm-2 col-form-label">費率</label>
+                        <div class="col-sm-10">
+                            <input type="number" class="form-control" id="fee-special">
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="place" class="col-sm-2 col-form-label">時限</label>
+                        <div class="col-sm-10">
+                            <select class="form-select" aria-label="">
+                                <option selected>時刻</option>
+                                <option value="1">日期</option>
+                            </select>
+                            <input type="datetime-local" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary">新增</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 <script>
 
@@ -382,7 +286,7 @@
         // Setup - add a text input to each footer cell
         $('#dollarTable tfoot th').each(function () {
             var title = $(this).text();
-            if(!$(this).hasClass("no-search"))
+            if (!$(this).hasClass("no-search"))
                 $(this).html('<input type="text" placeholder="搜尋 ' + title + '" />');
         });
 

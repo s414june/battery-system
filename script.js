@@ -27,8 +27,10 @@ $(function () {
     })
     $("#menu-header").hover((e) => {
         //單純UI效果
-        if($(window).width() > 576)
+        if($(window).width() > 576){
             $("#menu").toggleClass("bigger");
+            $("#menu-holder").toggleClass("bigger");
+        }
     })
     $(window).resize(() => {
         //保持特定尺寸預設menu開合(大裝置開，小裝置關)
