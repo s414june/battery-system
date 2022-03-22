@@ -136,7 +136,7 @@ input[type='range']:active::-webkit-slider-thumb {
   display: none;
   right: 0;
   top: 0;
-  z-index: 1000000;
+  z-index: 5;
 }
 #mobileMenu .menu-btn {
   transform: translateX(0);
