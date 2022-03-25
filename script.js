@@ -25,11 +25,18 @@ $(function () {
         $("#menu").hasClass("collapsed")? openCollapsedMenu():collapseMenu();
         $("#mobileMenu").toggleClass("collapsed");
     })
-    $("#menu-header").hover((e) => {
+    $("#menu-header").mouseover((e) => {
         //單純UI效果
         if($(window).width() > 576){
-            $("#menu").toggleClass("bigger");
-            $("#menu-holder").toggleClass("bigger");
+            $("#menu").addClass("bigger");
+            $("#menu-holder").adClass("bigger");
+        }
+    })
+    $("#menu-header").mouseout((e) => {
+        //單純UI效果
+        if($(window).width() > 576){
+            $("#menu").removeClass("bigger");
+            $("#menu-holder").removeClass("bigger");
         }
     })
     $(window).resize(() => {
