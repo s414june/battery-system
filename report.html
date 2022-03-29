@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>充電樁管理系統</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="./font-awesome/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+        integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+        integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="./font-awesome/js/all.min.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400&display=swap" rel="stylesheet">
+
+    <!-- datatable -->
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.datatables.net/v/bs5/jq-3.6.0/dt-1.11.5/date-1.1.2/r-2.2.9/sb-1.3.2/sp-2.0.0/datatables.min.css" />
+    <script type="text/javascript"
+        src="https://cdn.datatables.net/v/bs5/jq-3.6.0/dt-1.11.5/date-1.1.2/r-2.2.9/sb-1.3.2/sp-2.0.0/datatables.min.js"></script>
+
+    <!-- chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="./script.js"></script>
+</head>
+
+<body>
+    <header>
+    </header>
+    <script>
+        $.get('header.html', function (response) {
+            $('header').html(response);
+        });
+    </script>
+    <div class="d-flex position-relative">
+        <div id="menu-holder" style="z-index: -1;"></div>
+        <section class="position-relative" id="system-main">
+            <div class="w-100 pt-4 position-absolute" style="background-color: rgba(var(--bs-primary-rgb),0.75);">
+                <h3 class="ps-5 ms-4 pb-5 mb-5 text-white">系統儀錶板</h3>
+            </div>
+            <div class="mt-5 px-2 pt-4 px-xl-5 position-relative d-flex flex-column align-items-center w-100">
+                <div class="row my-3 justify-content-center align-items-stretch w-100">
+                    <div class="col-xl-6 mb-3">
+                        <div class="card shadow-sm h-100">
+                            <div class="card-body position-relative p-2">
+                                <h5 class="text-primary card-title">充電站分布</h5>
+                                <iframe
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3614.0996099068366!2d121.51940375082481!3d25.064612783879287!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a944413100e3%3A0x78758b116c9f9129!2ststi%20-%20Tatung%20System%20Technologies%20Inc.!5e0!3m2!1szh-TW!2stw!4v1647847274270!5m2!1szh-TW!2stw"
+                                    width="100%" height="450" style="border:0;" allowfullscreen=""
+                                    loading="lazy"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-6 mb-3">
+                        <div class="card shadow-sm h-100">
+                            <div class="card-body position-relative p-2">
+                                <h5 class="text-primary card-title">充電樁即時資訊</h5>
+                                <table class="table table-striped" id="realtimeTable">
+                                    <thead>
+                                        <tr>
+                                            <th>場域</th>
+                                            <th>充電樁代號</th>
+                                            <th>月累積電量</th>
+                                            <th>類型</th>
+                                            <th>電壓</th>
+                                            <th>告警</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>民權西</td>
+                                            <td>105551</td>
+                                            <td>1620 kWh</td>
+                                            <td>AC</td>
+                                            <td>220</td>
+                                            <td>無</td>
+                                        </tr>
+                                        <tr>
+                                            <td>民權西</td>
+                                            <td>105552</td>
+                                            <td>864 kWh</td>
+                                            <td>AC</td>
+                                            <td>220</td>
+                                            <td>無</td>
+                                        </tr>
+                                        <tr>
+                                            <td>民權西</td>
+                                            <td>105553</td>
+                                            <td>756 kWh</td>
+                                            <td>AC</td>
+                                            <td>220</td>
+                                            <td>無</td>
+                                        </tr>
+                                        <tr>
+                                            <td>民權西</td>
+                                            <td>105554</td>
+                                            <td>847 kWh</td>
+                                            <td>AC</td>
+                                            <td>220</td>
+                                            <td>無</td>
+                                        </tr>
+                                        <tr>
+                                            <td>民權西</td>
+                                            <td>105555</td>
+                                            <td>942 kWh</td>
+                                            <td>AC</td>
+                                            <td>220</td>
+                                            <td>無</td>
+                                        </tr>
+                                        <tr>
+                                            <td>民權西</td>
+                                            <td>105556</td>
+                                            <td>573 kWh</td>
+                                            <td>DC</td>
+                                            <td>313.8</td>
+                                            <td>無</td>
+                                        </tr>
+                                        <tr>
+                                            <td>民權西</td>
+                                            <td>105557</td>
+                                            <td>845 kWh</td>
+                                            <td>DC</td>
+                                            <td>313.8</td>
+                                            <td>無</td>
+                                        </tr>
+                                        <tr>
+                                            <td>民權西</td>
+                                            <td>105558</td>
+                                            <td>960 kWh</td>
+                                            <td>DC</td>
+                                            <td>313.8</td>
+                                            <td>無</td>
+                                        </tr>
+                                        <tr>
+                                            <td>民權西</td>
+                                            <td>105559</td>
+                                            <td>552 kWh</td>
+                                            <td>DC</td>
+                                            <td>313.8</td>
+                                            <td>無</td>
+                                        </tr>
+                                        <tr>
+                                            <td>民權西</td>
+                                            <td>105560</td>
+                                            <td>666 kWh</td>
+                                            <td>DC</td>
+                                            <td>313.8</td>
+                                            <td>無</td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-6 mb-3">
+                        <div class="card shadow-sm h-100">
+                            <div class="card-body position-relative p-2">
+                                <h5 class="text-primary card-title">即時用電</h5>
+                                <div>
+                                    <canvas id="energyChart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-6 mb-3">
+                        <div class="card shadow-sm h-100">
+                            <div class="card-body position-relative p-2">
+                                <h5 class="text-primary card-title">用電比較</h5>
+                                <div>
+                                    <canvas id="compareChart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+<script>
+    const labels = [
+        '10:00',
+        '11:00',
+        '12:00',
+        '01:00',
+        '02:00',
+        '03:00',
+    ];
+
+    const data = {
+        labels: labels,
+        datasets: [{
+            label: '105551',
+            backgroundColor: '#f87171',
+            borderColor: '#f87171',
+            data: [6, 21, 29, 26, 45, 28, 19],
+        },
+        {
+            label: '105552',
+            backgroundColor: '#fb923c',
+            borderColor: '#fb923c',
+            data: [5, 3, 9, 10, 15, 22, 10],
+        },
+        {
+            label: '105553',
+            backgroundColor: '#fbbf24',
+            borderColor: '#fbbf24',
+                data: [8, 8, 8, 7, 6, 10, 9],
+            },
+        {
+            label: '105554',
+            backgroundColor: '#facc15',
+            borderColor: '#facc15',
+                data: [7, 25, 11, 6, 23, 16, 8],
+            },
+        {
+            label: '105555',
+            backgroundColor: '#a3e635',
+            borderColor: '#a3e635',
+                data: [4, 27, 8, 13, 32, 22, 17],
+            },
+        {
+            label: '105556',
+            backgroundColor: '#4ade80',
+            borderColor: '#4ade80',
+                data: [9, 20, 14, 18, 23, 7, 18],
+            },
+        {
+            label: '105557',
+            backgroundColor: '#34d399',
+            borderColor: '#34d399',
+                data: [10, 15, 6, 19, 36, 19, 23],
+            },
+        {
+            label: '105558',
+            backgroundColor: '#2dd4bf',
+                borderColor: '#2dd4bf',
+                data: [8, 23, 12, 7, 30, 16, 21],
+            },
+        {
+            label: '105559',
+            backgroundColor: '#22d3ee',
+            borderColor: '#22d3ee',
+                data: [21, 18, 9, 15, 18, 22, 27],
+            },
+        {
+            label: '105560',
+            backgroundColor: '#38bdf8',
+            borderColor: '#38bdf8',
+                data: [10, 25, 18, 8, 25, 12, 21],
+            }
+
+
+
+        ]
+    };
+
+    const config = {
+        type: 'line',
+        data: data,
+        options: {}
+    };
+    const energyChart = new Chart(
+        document.getElementById('energyChart'),
+        config
+    );
+    const compareChart = new Chart(
+        document.getElementById('compareChart'),
+        {
+            type: 'bar',
+            data: {
+                labels: [
+                    '1月',
+                    '2月',
+                    '3月',
+                    '4月',
+                    '5月',
+                    '6月',
+                ],
+                datasets: [{
+                    label: '105551',
+                    backgroundColor: '#f87171',
+                    borderColor: '#f87171',
+                    data: [687, 1190, 1299, 1267, 450, 930, 1620 ],
+                },
+                    {
+                        label: '105552',
+                        backgroundColor: '#fb923c',
+                        borderColor: '#fb923c',
+                        data: [653, 834, 599, 910, 715, 822, 864 ],
+                    },
+                    {
+                        label: '105553',
+                        backgroundColor: '#fbbf24',
+                        borderColor: '#fbbf24',
+                        data: [785, 982, 889, 743, 864, 810, 756 ],
+                    },
+                    {
+                        label: '105554',
+                        backgroundColor: '#facc15',
+                        borderColor: '#facc15',
+                        data: [754, 625, 911, 864, 623, 916, 847 ],
+                    },
+                    {
+                        label: '105555',
+                        backgroundColor: '#a3e635',
+                        borderColor: '#a3e635',
+                        data: [743, 927, 843, 913, 732, 822, 942 ],
+                    },
+                    {
+                        label: '105556',
+                        backgroundColor: '#4ade80',
+                        borderColor: '#4ade80',
+                        data: [943, 820, 714, 918, 823, 753, 573],
+                    },
+                    {
+                        label: '105557',
+                        backgroundColor: '#34d399',
+                        borderColor: '#34d399',
+                        data: [610, 715, 866, 719, 836, 819, 845],
+                    },
+                    {
+                        label: '105558',
+                        backgroundColor: '#2dd4bf',
+                        borderColor: '#2dd4bf',
+                        data: [868, 723, 812, 677, 830, 716, 960 ],
+                    },
+                    {
+                        label: '105559',
+                        backgroundColor: '#22d3ee',
+                        borderColor: '#22d3ee',
+                        data: [721, 618, 689, 715, 518, 622, 552 ],
+                    },
+                    {
+                        label: '105560',
+                        backgroundColor: '#38bdf8',
+                        borderColor: '#38bdf8',
+                        data: [610, 725, 518, 876, 725, 712, 666 ],
+                    }]
+            },
+            options: {}
+        }
+    );
+
+
+    $(function () {
+        // DataTable
+        var table = $('#realtimeTable').DataTable({
+            paging: false,
+            searching: false,
+            language: {
+                "decimal": "",
+                "emptyTable": "No data available in table",
+                "info": "顯示 _START_ 到 _END_ 筆 (共_TOTAL_筆 )",
+                "infoEmpty": "顯示 0 到 0 筆 (共0筆 )",
+                "infoFiltered": "(filtered from _MAX_ total entries)",
+                "infoPostFix": "",
+                "thousands": ",",
+                "lengthMenu": "一頁 _MENU_ 筆",
+                "loadingRecords": "Loading...",
+                "processing": "Processing...",
+                "search": "搜尋:",
+                "zeroRecords": "無符合資料",
+                "paginate": {
+                    "first": "第一筆",
+                    "last": "最後一筆",
+                    "next": "下一頁",
+                    "previous": "上一頁"
+                },
+                "aria": {
+                    "sortAscending": ": activate to sort column ascending",
+                    "sortDescending": ": activate to sort column descending"
+                }
+            }
+        }
+        );
+    })
+</script>
+
+</html>
