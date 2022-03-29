@@ -29,7 +29,7 @@ $(function () {
         //單純UI效果
         if($(window).width() > 576){
             $("#menu").addClass("bigger");
-            $("#menu-holder").adClass("bigger");
+            $("#menu-holder").addClass("bigger");
         }
     })
     $("#menu-header").mouseout((e) => {

@@ -54,134 +54,82 @@
                     <div class="col-xl-6 mb-3">
                         <div class="card shadow-sm h-100">
                             <div class="card-body position-relative p-2">
-                                <h5 class="text-primary card-title">充電站分布</h5>
-                                <iframe
-                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3614.0996099068366!2d121.51940375082481!3d25.064612783879287!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a944413100e3%3A0x78758b116c9f9129!2ststi%20-%20Tatung%20System%20Technologies%20Inc.!5e0!3m2!1szh-TW!2stw!4v1647847274270!5m2!1szh-TW!2stw"
-                                    width="100%" height="450" style="border:0;" allowfullscreen=""
-                                    loading="lazy"></iframe>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-6 mb-3">
-                        <div class="card shadow-sm h-100">
-                            <div class="card-body position-relative p-2">
-                                <h5 class="text-primary card-title">充電樁即時資訊</h5>
-                                <table class="table table-striped" id="realtimeTable">
+                                <h5 class="text-primary card-title">場站總覽</h5>
+                                <div class="w-100 d-flex align-items-center justify-content-center">
+                                    <div class="overviewChartOutside">
+                                        <canvas id="overviewChart" style="position: relative;"></canvas>
+                                    </div>
+                                </div>
+                                <table id="dollarTable" class="table table-striped">
                                     <thead>
                                         <tr>
-                                            <th>場域</th>
-                                            <th>充電樁代號</th>
-                                            <th>月累積電量</th>
-                                            <th>類型</th>
-                                            <th>電壓</th>
-                                            <th>告警</th>
+                                            <th>場站</th>
+                                            <th>管理單位</th>
+                                            <th>充電樁數量</th>
+                                            <th>快充數量</th>
+                                            <th>慢充數量</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
                                             <td>民權西</td>
-                                            <td>105551</td>
-                                            <td>1620 kWh</td>
-                                            <td>AC</td>
-                                            <td>220</td>
-                                            <td>無</td>
+                                            <td>大世科</td>
+                                            <td>10</td>
+                                            <td>5</td>
+                                            <td>5</td>
                                         </tr>
                                         <tr>
+                                            <td>圓山</td>
+                                            <td>大世科</td>
+                                            <td>10</td>
+                                            <td>5</td>
+                                            <td>5</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-6 mb-3">
+                        <div class="card shadow-sm h-100">
+                            <div class="card-body position-relative p-2">
+                                <h5 class="text-primary card-title">群組總覽</h5>
+                                <div class="w-100 d-flex align-items-center justify-content-center">
+                                    <div class="overviewChartOutside">
+                                        <canvas id="overviewChart2" style="position: relative;"></canvas>
+                                    </div>
+                                </div>
+                                <table id="dollarTable" class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>群組名稱</th>
+                                            <th>場站</th>
+                                            <th>充電樁數量</th>
+                                            <th>負載限流</th>
+                                            <th>現在負載</th>
+                                            <th>是否告警</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>大同廠區電樁</td>
                                             <td>民權西</td>
-                                            <td>105552</td>
-                                            <td>864 kWh</td>
-                                            <td>AC</td>
-                                            <td>220</td>
-                                            <td>無</td>
+                                            <td>10</td>
+                                            <td>80000 kWh</td>
+                                            <td>6171 kWh</td>
+                                            <td>否</td>
                                         </tr>
                                         <tr>
-                                            <td>民權西</td>
-                                            <td>105553</td>
-                                            <td>756 kWh</td>
-                                            <td>AC</td>
-                                            <td>220</td>
-                                            <td>無</td>
+                                            <td>花博廠區電樁</td>
+                                            <td>圓山</td>
+                                            <td>10</td>
+                                            <td>80000 kWh</td>
+                                            <td>7136 kWh</td>
+                                            <td>否</td>
                                         </tr>
-                                        <tr>
-                                            <td>民權西</td>
-                                            <td>105554</td>
-                                            <td>847 kWh</td>
-                                            <td>AC</td>
-                                            <td>220</td>
-                                            <td>無</td>
-                                        </tr>
-                                        <tr>
-                                            <td>民權西</td>
-                                            <td>105555</td>
-                                            <td>942 kWh</td>
-                                            <td>AC</td>
-                                            <td>220</td>
-                                            <td>無</td>
-                                        </tr>
-                                        <tr>
-                                            <td>民權西</td>
-                                            <td>105556</td>
-                                            <td>573 kWh</td>
-                                            <td>DC</td>
-                                            <td>313.8</td>
-                                            <td>無</td>
-                                        </tr>
-                                        <tr>
-                                            <td>民權西</td>
-                                            <td>105557</td>
-                                            <td>845 kWh</td>
-                                            <td>DC</td>
-                                            <td>313.8</td>
-                                            <td>無</td>
-                                        </tr>
-                                        <tr>
-                                            <td>民權西</td>
-                                            <td>105558</td>
-                                            <td>960 kWh</td>
-                                            <td>DC</td>
-                                            <td>313.8</td>
-                                            <td>無</td>
-                                        </tr>
-                                        <tr>
-                                            <td>民權西</td>
-                                            <td>105559</td>
-                                            <td>552 kWh</td>
-                                            <td>DC</td>
-                                            <td>313.8</td>
-                                            <td>無</td>
-                                        </tr>
-                                        <tr>
-                                            <td>民權西</td>
-                                            <td>105560</td>
-                                            <td>666 kWh</td>
-                                            <td>DC</td>
-                                            <td>313.8</td>
-                                            <td>無</td>
-                                        </tr>
-
                                     </tbody>
                                 </table>
 
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-6 mb-3">
-                        <div class="card shadow-sm h-100">
-                            <div class="card-body position-relative p-2">
-                                <h5 class="text-primary card-title">即時用電</h5>
-                                <div>
-                                    <canvas id="energyChart"></canvas>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-6 mb-3">
-                        <div class="card shadow-sm h-100">
-                            <div class="card-body position-relative p-2">
-                                <h5 class="text-primary card-title">用電比較</h5>
-                                <div>
-                                    <canvas id="compareChart"></canvas>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -191,203 +139,85 @@
     </div>
 </body>
 <script>
-    const labels = [
-        '10:00',
-        '11:00',
-        '12:00',
-        '01:00',
-        '02:00',
-        '03:00',
-    ];
-
     const data = {
-        labels: labels,
+        labels: [
+            '民權西',
+            '大世科'
+        ],
         datasets: [{
-            label: '105551',
-            backgroundColor: '#f87171',
-            borderColor: '#f87171',
-            data: [6, 21, 29, 26, 45, 28, 19],
-        },
-        {
-            label: '105552',
-            backgroundColor: '#fb923c',
-            borderColor: '#fb923c',
-            data: [5, 3, 9, 10, 15, 22, 10],
-        },
-        {
-            label: '105553',
-            backgroundColor: '#fbbf24',
-            borderColor: '#fbbf24',
-                data: [8, 8, 8, 7, 6, 10, 9],
-            },
-        {
-            label: '105554',
-            backgroundColor: '#facc15',
-            borderColor: '#facc15',
-                data: [7, 25, 11, 6, 23, 16, 8],
-            },
-        {
-            label: '105555',
-            backgroundColor: '#a3e635',
-            borderColor: '#a3e635',
-                data: [4, 27, 8, 13, 32, 22, 17],
-            },
-        {
-            label: '105556',
-            backgroundColor: '#4ade80',
-            borderColor: '#4ade80',
-                data: [9, 20, 14, 18, 23, 7, 18],
-            },
-        {
-            label: '105557',
-            backgroundColor: '#34d399',
-            borderColor: '#34d399',
-                data: [10, 15, 6, 19, 36, 19, 23],
-            },
-        {
-            label: '105558',
-            backgroundColor: '#2dd4bf',
-                borderColor: '#2dd4bf',
-                data: [8, 23, 12, 7, 30, 16, 21],
-            },
-        {
-            label: '105559',
-            backgroundColor: '#22d3ee',
-            borderColor: '#22d3ee',
-                data: [21, 18, 9, 15, 18, 22, 27],
-            },
-        {
-            label: '105560',
-            backgroundColor: '#38bdf8',
-            borderColor: '#38bdf8',
-                data: [10, 25, 18, 8, 25, 12, 21],
-            }
-
-
-
-        ]
+            label: '場站分布圖',
+            data: [10, 10],
+            backgroundColor: [
+                '#38bdf8',
+                '#22d3ee'
+            ],
+            hoverOffset: 4,
+        }]
     };
-
     const config = {
-        type: 'line',
+        type: 'pie',
         data: data,
-        options: {}
-    };
-    const energyChart = new Chart(
-        document.getElementById('energyChart'),
-        config
-    );
-    const compareChart = new Chart(
-        document.getElementById('compareChart'),
-        {
-            type: 'bar',
-            data: {
-                labels: [
-                    '1月',
-                    '2月',
-                    '3月',
-                    '4月',
-                    '5月',
-                    '6月',
-                ],
-                datasets: [{
-                    label: '105551',
-                    backgroundColor: '#f87171',
-                    borderColor: '#f87171',
-                    data: [687, 1190, 1299, 1267, 450, 930, 1620 ],
-                },
-                    {
-                        label: '105552',
-                        backgroundColor: '#fb923c',
-                        borderColor: '#fb923c',
-                        data: [653, 834, 599, 910, 715, 822, 864 ],
-                    },
-                    {
-                        label: '105553',
-                        backgroundColor: '#fbbf24',
-                        borderColor: '#fbbf24',
-                        data: [785, 982, 889, 743, 864, 810, 756 ],
-                    },
-                    {
-                        label: '105554',
-                        backgroundColor: '#facc15',
-                        borderColor: '#facc15',
-                        data: [754, 625, 911, 864, 623, 916, 847 ],
-                    },
-                    {
-                        label: '105555',
-                        backgroundColor: '#a3e635',
-                        borderColor: '#a3e635',
-                        data: [743, 927, 843, 913, 732, 822, 942 ],
-                    },
-                    {
-                        label: '105556',
-                        backgroundColor: '#4ade80',
-                        borderColor: '#4ade80',
-                        data: [943, 820, 714, 918, 823, 753, 573],
-                    },
-                    {
-                        label: '105557',
-                        backgroundColor: '#34d399',
-                        borderColor: '#34d399',
-                        data: [610, 715, 866, 719, 836, 819, 845],
-                    },
-                    {
-                        label: '105558',
-                        backgroundColor: '#2dd4bf',
-                        borderColor: '#2dd4bf',
-                        data: [868, 723, 812, 677, 830, 716, 960 ],
-                    },
-                    {
-                        label: '105559',
-                        backgroundColor: '#22d3ee',
-                        borderColor: '#22d3ee',
-                        data: [721, 618, 689, 715, 518, 622, 552 ],
-                    },
-                    {
-                        label: '105560',
-                        backgroundColor: '#38bdf8',
-                        borderColor: '#38bdf8',
-                        data: [610, 725, 518, 876, 725, 712, 666 ],
-                    }]
-            },
-            options: {}
-        }
-    );
-
-
-    $(function () {
-        // DataTable
-        var table = $('#realtimeTable').DataTable({
-            paging: false,
-            searching: false,
-            language: {
-                "decimal": "",
-                "emptyTable": "No data available in table",
-                "info": "顯示 _START_ 到 _END_ 筆 (共_TOTAL_筆 )",
-                "infoEmpty": "顯示 0 到 0 筆 (共0筆 )",
-                "infoFiltered": "(filtered from _MAX_ total entries)",
-                "infoPostFix": "",
-                "thousands": ",",
-                "lengthMenu": "一頁 _MENU_ 筆",
-                "loadingRecords": "Loading...",
-                "processing": "Processing...",
-                "search": "搜尋:",
-                "zeroRecords": "無符合資料",
-                "paginate": {
-                    "first": "第一筆",
-                    "last": "最後一筆",
-                    "next": "下一頁",
-                    "previous": "上一頁"
-                },
-                "aria": {
-                    "sortAscending": ": activate to sort column ascending",
-                    "sortDescending": ": activate to sort column descending"
+        options: {
+            responsive: true,
+            plugins: {
+                title: {
+                    display: true,
+                    text: '場站分布圖'
                 }
             }
         }
-        );
-    })
+    };
+    const overviewChart = new Chart(
+        document.getElementById('overviewChart'),
+        config
+    );
+
+    const data2 = {
+        labels: [
+            '民權西',
+            '大世科'
+        ],
+        datasets: [{
+            label: '群組分布',
+            data: [6171 , 7136 ],
+            backgroundColor: [
+                '#f87171',
+                '#fb923c'
+            ],
+            hoverOffset: 4,
+        }]
+    };
+    const config2 = {
+        type: 'pie',
+        data: data2,
+        options: {
+            responsive: true,
+            plugins: {
+                title: {
+                    display: true,
+                    text: '現在負載分布'
+                }
+            }
+        }
+    };
+    const overviewChart2 = new Chart(
+        document.getElementById('overviewChart2'),
+        config2
+    );
 </script>
+<style>
+    .overviewChartOutside {
+        width: 300px;
+        height: 300px;
+        margin-bottom: 2rem;
+    }
+
+    @media (max-width: 575px) {
+        .overviewChartOutside {
+            width: 50vw;
+            height: 50vw;
+        }
+    }
+</style>
 
 </html>
