@@ -41,6 +41,13 @@ input[type='range']:active::-webkit-slider-thumb {
 .modal-footer {
   border: none;
 }
+.form-check-input:checked{
+  background-color: var(--bs-primary);
+  border-color: var(--bs-primary);
+}
+.form-check-input:focus{
+  box-shadow: 0 0 0 0.25rem rgba(var(--bs-primary-rgb), 0.4);
+}
 #menu,
 #menu-holder {
   min-width: 280px;
@@ -287,18 +294,25 @@ input[type='range']:active::-webkit-slider-thumb {
 .form-floating label {
   color: var(--bs-gray);
 }
-.form-control {
+/* .form-control {
   border-radius: 0;
   border-left: none;
   border-right: none;
   border-top: none;
-}
+} */
 .form-control:focus {
   border-color: var(--bs-primary);
   box-shadow: none;
 }
+.form-control:focus ~ label{
+  color: var(--bs-primary);
+  opacity: 1;
+}
 .form-control::placeholder {
   color: var(--bs-gray-500);
+}
+.form-floating>.form-control:focus~label, .form-floating>.form-control:not(:placeholder-shown)~label, .form-floating>.form-select~labels{
+  opacity: 1;
 }
 /* range */
 .wrunner__handle_theme_default.wrunner__handle {
