@@ -71,4 +71,9 @@ $(function () {
             $("#menu-holder").removeClass("collapsed");
         }
     }
+
+    $(".not-opening-url").click((e)=>{
+        alert("此項目尚未啟用！");
+        // e.stopPropagation();
+    })
 })
