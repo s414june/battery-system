@@ -333,3 +333,6 @@ input[type='range']:active::-webkit-slider-thumb {
 .wrunner__handle_theme_default.wrunner__handle:active {
   background-color: var(--bs-primary);
 }
+.not-opening-url{
+  color: var(--bs-gray-400) !important;
+}
