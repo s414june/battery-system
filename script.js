@@ -28,8 +28,10 @@ $(function () {
     $("#menu-header").mouseover((e) => {
         //單純UI效果
         if($(window).width() > 576){
-            $("#menu").addClass("bigger");
-            $("#menu-holder").addClass("bigger");
+            if($("#menu").hasClass("collapsed")){
+                $("#menu").addClass("bigger");
+                $("#menu-holder").addClass("bigger");
+            }
         }
     })
     $("#menu-header").mouseout((e) => {

@@ -54,6 +54,8 @@ input[type='range']:active::-webkit-slider-thumb {
 #menu {
   position: fixed;
   top: 0;
+  user-select: none;
+  -webkit-user-select: none;
 }
 #menu.collapsed,
 #menu-holder.collapsed {
