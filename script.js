@@ -34,7 +34,7 @@ $(function () {
         if ($(window).width() > 576) {
             if ($("#menu").hasClass("collapsed")) {
                 $("#menu").addClass("bigger");
-                $("#menu-holder").addClass("bigger");
+                $(".menu-holder").addClass("bigger");
             }
         }
     })
@@ -42,7 +42,7 @@ $(function () {
         //單純UI效果
         if ($(window).width() > 576) {
             $("#menu").removeClass("bigger");
-            $("#menu-holder").removeClass("bigger");
+            $(".menu-holder").removeClass("bigger");
         }
     })
 })
@@ -72,7 +72,7 @@ function Logout() {
 function collapseMenu() {
     if (!$("#menu").hasClass("collapsed")) {
         $("#menu").addClass("collapsed");
-        $("#menu-holder").addClass("collapsed");
+        $(".menu-holder").addClass("collapsed");
         $(".hide-when-collapsed").removeClass("show").addClass("hide");
         $("#menu .collapse").collapse("hide");
     }
@@ -89,7 +89,7 @@ function openCollapsedMenu() {
             }, 200)
         })
         $("#menu").removeClass("collapsed");
-        $("#menu-holder").removeClass("collapsed");
+        $(".menu-holder").removeClass("collapsed");
     }
 }
 

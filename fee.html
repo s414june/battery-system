@@ -48,15 +48,13 @@
     </header>
     <script>
         $.get('header.html', function (response) {
+            response = response.replace("${title-text}","費率管理");
             $('header').html(response);
         });
     </script>
     <div class="d-flex">
-        <div id="menu-holder" style="z-index: -1;"></div>
+        <div class="menu-holder" style="z-index: -1;"></div>
         <section class="position-relative flex-grow-1" id="system-main">
-            <div class="w-100" style="background-color: rgba(var(--bs-primary-rgb),0.75);">
-                <h5 class="p-3 ms-2 text-white">費率管理</h5>
-            </div>
             <div class="mx-4">
                 <ul class="nav border-bottom">
                     <li class="nav-item">

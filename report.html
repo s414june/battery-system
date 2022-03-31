@@ -40,17 +40,15 @@
     </header>
     <script>
         $.get('header.html', function (response) {
+            response = response.replace("${title-text}","分析報表");
             $('header').html(response);
         });
     </script>
     <div class="d-flex position-relative">
-        <div id="menu-holder" style="z-index: -1;"></div>
+        <div class="menu-holder"></div>
         <section class="position-relative w-100" id="system-main">
-            <div class="w-100 pt-4 position-absolute" style="background-color: rgba(var(--bs-primary-rgb),0.75);">
-                <h3 class="ps-5 ms-4 pb-5 mb-5 text-white">分析報表</h3>
-            </div>
-            <div class="mt-5 px-2 pt-4 px-xl-5 position-relative d-flex flex-column align-items-center w-100">
-                <div class="row my-3 justify-content-center align-items-stretch w-100">
+            <div class="p-2 px-xl-5 position-relative d-flex flex-column align-items-center w-100">
+                <div class="row justify-content-center align-items-stretch w-100">
                     <div class="col-xl-6 mb-3">
                         <div class="card shadow-sm h-100">
                             <div class="card-body position-relative p-2">
