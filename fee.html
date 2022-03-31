@@ -50,14 +50,7 @@
         $.get('header.html', function (response) {
             response = response.replace("${title-text}", "費率管理");
             $('header').html(response);
-            //預設menu開合(小裝置關)
-            if ($(window).width() < 991) {
-                collapseMenu();
-            }
-            $("#mobileMenu").click((e) => {
-                $("#menu").hasClass("collapsed") ? openCollapsedMenu() : collapseMenu();
-                $("#mobileMenu").toggleClass("collapsed");
-            })
+            afterGetHeader();
         });
     </script>
     <div class="d-flex">
