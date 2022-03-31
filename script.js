@@ -103,6 +103,6 @@ function Logout(){
     }
 }
 $(window).resize(()=>{
-    document.documentElement.style.setProperty('--vh', `${vh}px`);
+    // document.documentElement.style.setProperty('--vh', `${vh}px`);
     collapseMenu();
 })

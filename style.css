@@ -241,11 +241,6 @@ input[type='range']:active::-webkit-slider-thumb {
 #menu .accordion-button:not(.collapsed) {
   box-shadow: none;
 }
-@media (max-width: 991px) {
-  #menu {
-    position: fixed;
-  }
-}
 @media (max-width: 575px) {
   #menu-holder {
     width: 0;
