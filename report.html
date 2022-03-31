@@ -363,6 +363,10 @@
 
 
     $(function () {
+        //預設menu開合(小裝置關)
+        if ($(window).width() < 991) {
+            collapseMenu();
+        }
         // DataTable
         var table = $('#realtimeTable').DataTable({
             paging: false,
@@ -396,9 +400,10 @@
     })
 </script>
 <style>
-    canvas{
+    canvas {
         position: relative;
         width: 100%;
     }
 </style>
+
 </html>

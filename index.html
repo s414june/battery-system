@@ -139,6 +139,12 @@
     </div>
 </body>
 <script>
+    $(function () {
+        //預設menu開合(小裝置關)
+        if ($(window).width() < 991) {
+            collapseMenu();
+        }
+    })
     const data = {
         labels: [
             '民權西',
@@ -179,7 +185,7 @@
         ],
         datasets: [{
             label: '群組分布',
-            data: [6171 , 7136 ],
+            data: [6171, 7136],
             backgroundColor: [
                 '#f87171',
                 '#fb923c'
