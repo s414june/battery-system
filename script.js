@@ -57,7 +57,7 @@ $(function () {
         $("#menu").addClass("collapsed");
         $("#menu-holder").addClass("collapsed");
         $(".hide-when-collapsed").removeClass("show").addClass("hide");
-        // $("#menu .collapse").collapse("hide");
+        $("#menu .collapse").collapse("hide");
     }
 
     function openCollapsedMenu() {
@@ -78,6 +78,12 @@ $(function () {
     $(".not-opening-url").click((e)=>{
         alert("此項目尚未啟用！");
         // e.stopPropagation();
+    })
+    $(window).scroll(()=>{
+        //預設menu開合(小裝置關)
+        if ($(window).width() < 991) {
+            collapseMenu();
+        }
     })
 })
 
@@ -102,9 +108,3 @@ function Logout(){
         location.assign("./login.html");
     }
 }
-$(window).resize(()=>{
-    //預設menu開合(小裝置關)
-    if ($(window).width() < 991) {
-        collapseMenu();
-    }
-})
