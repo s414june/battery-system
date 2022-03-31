@@ -25,10 +25,10 @@ $(function () {
     $("#menu-header").click((e) => {
         openCollapsedMenu();
     })
-    $("#mobileMenu").click((e) => {
-        $("#menu").hasClass("collapsed") ? openCollapsedMenu() : collapseMenu();
-        $("#mobileMenu").toggleClass("collapsed");
-    })
+    // $("#mobileMenu").click((e) => {
+    //     $("#menu").hasClass("collapsed") ? openCollapsedMenu() : collapseMenu();
+    //     $("#mobileMenu").toggleClass("collapsed");
+    // })
     $("#menu-header").mouseover((e) => {
         //單純UI效果
         if ($(window).width() > 576) {

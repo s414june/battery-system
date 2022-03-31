@@ -54,6 +54,10 @@
             if ($(window).width() < 991) {
                 collapseMenu();
             }
+            $("#mobileMenu").click((e) => {
+                $("#menu").hasClass("collapsed") ? openCollapsedMenu() : collapseMenu();
+                $("#mobileMenu").toggleClass("collapsed");
+            })
         });
     </script>
     <div class="d-flex">
