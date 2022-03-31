@@ -57,7 +57,7 @@ $(function () {
         $("#menu").addClass("collapsed");
         $("#menu-holder").addClass("collapsed");
         $(".hide-when-collapsed").removeClass("show").addClass("hide");
-        $("#menu .collapse").collapse("hide");
+        // $("#menu .collapse").collapse("hide");
     }
 
     function openCollapsedMenu() {
@@ -104,4 +104,5 @@ function Logout(){
 }
 $(window).resize(()=>{
     document.documentElement.style.setProperty('--vh', `${vh}px`);
+    collapseMenu();
 })
