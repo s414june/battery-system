@@ -73,7 +73,6 @@ function collapseMenu() {
     $("#menu").addClass("collapsed");
     $(".menu-holder").addClass("collapsed");
     $(".hide-when-collapsed").removeClass("show").addClass("hide");
-    $("#menu .collapse").collapse("hide");
     //手機版menu設定(預設關閉menu)
     if ($(window).width() < 575)
         $("#mobileMenu").addClass("collapsed");
