@@ -9,9 +9,6 @@ $(function () {
     //預設menu開合(小裝置關)
     if ($(window).width() < 991) {
         collapseMenu();
-        //手機版menu設定(預設關閉menu)
-        if ($(window).width() < 575)
-            $("#mobileMenu").addClass("collapsed");
     }
 
     $(".hide-when-collapsed").removeClass("hide").addClass("show");
@@ -77,6 +74,9 @@ function collapseMenu() {
     $(".menu-holder").addClass("collapsed");
     $(".hide-when-collapsed").removeClass("show").addClass("hide");
     $("#menu .collapse").collapse("hide");
+    //手機版menu設定(預設關閉menu)
+    if ($(window).width() < 575)
+        $("#mobileMenu").addClass("collapsed");
 }
 
 function openCollapsedMenu() {
@@ -115,6 +115,5 @@ $(window).scroll(() => {
         vh = window.innerHeight * 0.01;
         document.documentElement.style.setProperty('--vh', `${vh}px`);
         collapseMenu();
-        $("#mobileMenu").addClass("collapsed");
     }
 })
