@@ -53,6 +53,10 @@
             //預設menu開合(小裝置關)
             if ($(window).width() < 991) {
                 collapseMenu();
+                //手機版menu設定(預設關閉menu)
+                if ($(window).width() < 575) {
+                    $("#mobileMenu").addClass("collapsed");
+                }
             }
         });
     </script>
