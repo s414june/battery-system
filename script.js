@@ -75,7 +75,6 @@ function collapseMenu() {
         $("#menu-holder").addClass("collapsed");
         $(".hide-when-collapsed").removeClass("show").addClass("hide");
         $("#menu .collapse").collapse("hide");
-        $("#mobileMenu").addClass("collapsed");
     }
 }
 
@@ -91,7 +90,6 @@ function openCollapsedMenu() {
         })
         $("#menu").removeClass("collapsed");
         $("#menu-holder").removeClass("collapsed");
-        $("#mobileMenu").removeClass("collapsed");
     }
 }
 
@@ -116,5 +114,6 @@ $(window).scroll(() => {
         vh = window.innerHeight * 0.01;
         document.documentElement.style.setProperty('--vh', `${vh}px`);
         collapseMenu();
+        $("#mobileMenu").addClass("collapsed");
     }
 })
