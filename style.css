@@ -53,7 +53,7 @@ input[type='range']:active::-webkit-slider-thumb {
   max-width: calc(100vw - 0.5rem - 45px);
   width: 280px;
   height: calc(var(--vh, 1vh) * 100);
-  max-height: 100vh;
+  /* max-height: 100vh; */
   z-index: 5;
   background-color: var(--bs-primary);
   transition: 0.5s;
