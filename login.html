@@ -32,7 +32,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <link rel="stylesheet" href="style.css">
-    <script src="./script.js"></script>
+    <!-- <script src="./script.js"></script> -->
 </head>
 
 <body>
@@ -42,8 +42,8 @@
                 <h5 class="text-primary card-title text-center pb-3">Charge Manage System</h5>
                 <div class="py-3">
                     <div class="form-floating">
-                        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                        <label for="floatingInput">Account</label>
+                        <input type="email" class="form-control" id="floatingAccount" placeholder="name@example.com">
+                        <label for="floatingAccount">Account</label>
                     </div>
                     <div class="form-check py-2">
                         <input class="form-check-input" type="checkbox" value="" id="rememberAccount" checked>
@@ -64,7 +64,7 @@
                         </label>
                     </div>
                 </div>
-                <a href="./index.html" class="btn btn-primary w-100 mt-3">Login</a>
+                <a href="javascript:void(0)" class="btn btn-primary w-100 mt-3" onclick="Login()">Login</a>
             </div>
         </div>
     </div>
@@ -86,9 +86,18 @@
 </style>
 
 <script>
-    let testAccount = "tatung";
-    let testPassword = "70771557Car";
-
+    const testAccount = "tatung";
+    const testPassword = "70771557Car";
+    function Login(){
+        if($("#floatingAccount").val()==testAccount&&$("#floatingPassword").val()==testPassword){
+            location.assign("./index.html");
+            localStorage.setItem("Account",testAccount);
+            localStorage.setItem("Password",testPassword);
+        }
+        else{
+            alert("帳號或密碼錯誤！");
+        }
+    }
 </script>
 
 </html>

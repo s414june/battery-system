@@ -241,9 +241,6 @@ input[type='range']:active::-webkit-slider-thumb {
 #menu .accordion-button:not(.collapsed) {
   box-shadow: none;
 }
-#system-main {
-  flex-grow: 1;
-}
 @media (max-width: 991px) {
   #menu {
     position: fixed;

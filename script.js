@@ -1,4 +1,5 @@
 $(function () {
+    VerifyUser();
     // First we get the viewport height and we multiple it by 1% to get a value for a vh unit
     let vh = window.innerHeight * 0.01;
     // Then we set the value in the --vh custom property to the root of the document
@@ -79,3 +80,25 @@ $(function () {
         // e.stopPropagation();
     })
 })
+
+function VerifyUser(){
+    const testAccount = "tatung";
+    const testPassword = "70771557Car";
+    let Account = localStorage.getItem("Account");
+    let Password = localStorage.getItem("Password");
+    if(Account==testAccount && Password==testPassword){
+        return;
+    }
+    else{
+        alert("請登入");
+        location.assign("./login.html");
+    }    
+}
+function Logout(){
+    if(confirm("你確定要登出？")){
+        alert("已登出系統！");
+        localStorage.removeItem("Account");
+        localStorage.removeItem("Password");
+        location.assign("./login.html");
+    }
+}
