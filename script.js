@@ -45,6 +45,9 @@ $(function () {
             $(".menu-holder").removeClass("bigger");
         }
     })
+    $(".not-opening-url").click((e) => {
+        alert("此項目尚未啟用！");
+    })
 })
 
 function VerifyUser() {
@@ -104,10 +107,6 @@ $(window).resize(() => {
     document.documentElement.style.setProperty('--vh', `${vh}px`);
 })
 
-$(".not-opening-url").click((e) => {
-    alert("此項目尚未啟用！");
-    // e.stopPropagation();
-})
 $(window).scroll(() => {
     //預設menu開合(小裝置關)
     if ($(window).width() < 991) {
