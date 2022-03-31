@@ -169,10 +169,10 @@ input[type='range']:active::-webkit-slider-thumb {
   transform: translate(0, var(--menu-btn-translate-y-last)) scale(1.1)
     rotate(45deg);
 }
-.no-arrow .accordion-button::after {
+.no-arrow .accordion-button:after {
   display: none;
 }
-.accordion-button::after {
+.accordion-button:after {
   width: 8px;
   height: 8px;
   background-image: none;
@@ -180,12 +180,12 @@ input[type='range']:active::-webkit-slider-thumb {
   border-bottom: 2px solid #fff;
   transform: rotate(-45deg);
 }
-.accordion-button:not(.collapsed)::after {
-  width: 8px;
-  height: 10px;
+.accordion-button:not(.collapsed):after {
+  /* width: 8px;
+  height: 8px; */
   background-image: none;
-  border-right: 2px solid #fff;
-  border-bottom: 2px solid #fff;
+  /* border-right: 2px solid #fff;
+  border-bottom: 2px solid #fff; */
   transform: rotate(45deg);
 }
 .btn-primary {
