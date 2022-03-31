@@ -54,10 +54,13 @@ $(function () {
     })
 
     function collapseMenu() {
-        $("#menu").addClass("collapsed");
-        $("#menu-holder").addClass("collapsed");
-        $(".hide-when-collapsed").removeClass("show").addClass("hide");
-        $("#menu .collapse").collapse("hide");
+        if (!$("#menu").hasClass("collapsed")) {
+            $("#menu").addClass("collapsed");
+            $("#menu-holder").addClass("collapsed");
+            $(".hide-when-collapsed").removeClass("show").addClass("hide");
+            $("#menu .collapse").collapse("hide");
+            $("#mobileMenu").addClass("collapsed");
+        }
     }
 
     function openCollapsedMenu() {
@@ -82,6 +85,7 @@ $(function () {
     $(window).scroll(()=>{
         //預設menu開合(小裝置關)
         if ($(window).width() < 991) {
+            document.documentElement.style.setProperty('--vh', `${vh}px`);
             collapseMenu();
         }
     })
