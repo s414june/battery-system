@@ -40,8 +40,12 @@
     </header>
     <script>
         $.get('header.html', function (response) {
-            response = response.replace("${title-text}","系統儀錶板");
+            response = response.replace("${title-text}", "系統儀錶板");
             $('header').html(response);
+            //預設menu開合(小裝置關)
+            if ($(window).width() < 991) {
+                collapseMenu();
+            }
         });
     </script>
     <!-- <div id="title">
