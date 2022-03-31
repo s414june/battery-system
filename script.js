@@ -53,31 +53,6 @@ $(function () {
         document.documentElement.style.setProperty('--vh', `${vh}px`);
     })
 
-    function collapseMenu() {
-        if (!$("#menu").hasClass("collapsed")) {
-            $("#menu").addClass("collapsed");
-            $("#menu-holder").addClass("collapsed");
-            $(".hide-when-collapsed").removeClass("show").addClass("hide");
-            $("#menu .collapse").collapse("hide");
-            $("#mobileMenu").addClass("collapsed");
-        }
-    }
-
-    function openCollapsedMenu() {
-        if ($("#menu").hasClass("collapsed")) {
-            $(".hide-when-collapsed").animate({
-                opacity: 0
-            }, 400, () => {
-                $(".hide-when-collapsed").removeClass("hide").addClass("show");
-                $(".hide-when-collapsed").animate({
-                    opacity: 1
-                }, 200)
-            })
-            $("#menu").removeClass("collapsed");
-            $("#menu-holder").removeClass("collapsed");
-        }
-    }
-
     $(".not-opening-url").click((e)=>{
         alert("此項目尚未啟用！");
         // e.stopPropagation();
@@ -110,5 +85,29 @@ function Logout(){
         localStorage.removeItem("Account");
         localStorage.removeItem("Password");
         location.assign("./login.html");
+    }
+}
+function collapseMenu() {
+    if (!$("#menu").hasClass("collapsed")) {
+        $("#menu").addClass("collapsed");
+        $("#menu-holder").addClass("collapsed");
+        $(".hide-when-collapsed").removeClass("show").addClass("hide");
+        $("#menu .collapse").collapse("hide");
+        $("#mobileMenu").addClass("collapsed");
+    }
+}
+
+function openCollapsedMenu() {
+    if ($("#menu").hasClass("collapsed")) {
+        $(".hide-when-collapsed").animate({
+            opacity: 0
+        }, 400, () => {
+            $(".hide-when-collapsed").removeClass("hide").addClass("show");
+            $(".hide-when-collapsed").animate({
+                opacity: 1
+            }, 200)
+        })
+        $("#menu").removeClass("collapsed");
+        $("#menu-holder").removeClass("collapsed");
     }
 }
