@@ -91,6 +91,7 @@ function openCollapsedMenu() {
         })
         $("#menu").removeClass("collapsed");
         $("#menu-holder").removeClass("collapsed");
+        $("#mobileMenu").removeClass("collapsed");
     }
 }
 
