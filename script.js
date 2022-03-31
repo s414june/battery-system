@@ -103,6 +103,8 @@ function Logout(){
     }
 }
 $(window).resize(()=>{
-    // document.documentElement.style.setProperty('--vh', `${vh}px`);
-    collapseMenu();
+    //預設menu開合(小裝置關)
+    if ($(window).width() < 991) {
+        collapseMenu();
+    }
 })
