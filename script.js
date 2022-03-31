@@ -102,3 +102,6 @@ function Logout(){
         location.assign("./login.html");
     }
 }
+$(window).resize(()=>{
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+})
