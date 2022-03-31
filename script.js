@@ -70,12 +70,10 @@ function Logout() {
 }
 
 function collapseMenu() {
-    if (!$("#menu").hasClass("collapsed")) {
-        $("#menu").addClass("collapsed");
-        $(".menu-holder").addClass("collapsed");
-        $(".hide-when-collapsed").removeClass("show").addClass("hide");
-        $("#menu .collapse").collapse("hide");
-    }
+    $("#menu").addClass("collapsed");
+    $(".menu-holder").addClass("collapsed");
+    $(".hide-when-collapsed").removeClass("show").addClass("hide");
+    $("#menu .collapse").collapse("hide");
 }
 
 function openCollapsedMenu() {
