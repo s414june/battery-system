@@ -6,10 +6,13 @@ $(function () {
     // Then we set the value in the --vh custom property to the root of the document
     document.documentElement.style.setProperty('--vh', `${vh}px`);
 
-    // //預設menu開合(小裝置關)
-    // if ($(window).width() < 991) {
-    //     collapseMenu();
-    // }
+    //預設menu開合(小裝置關)
+    if ($(window).width() < 991) {
+        collapseMenu();
+        //手機版menu設定(預設關閉menu)
+        if ($(window).width() < 575)
+            $("#mobileMenu").addClass("collapsed");
+    }
 
     $(".hide-when-collapsed").removeClass("hide").addClass("show");
 
