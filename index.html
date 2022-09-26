@@ -5,17 +5,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>充電樁管理系統</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <title>Toll Rate Management</title>
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./font-awesome/css/all.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
-        integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
-        integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
-        crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+    <script src="./js/jquery-3.6.0.min.js"></script>
     <script src="./font-awesome/js/all.min.js"></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -23,13 +18,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400&display=swap" rel="stylesheet">
 
     <!-- datatable -->
-    <link rel="stylesheet" type="text/css"
-        href="https://cdn.datatables.net/v/bs5/jq-3.6.0/dt-1.11.5/date-1.1.2/r-2.2.9/sb-1.3.2/sp-2.0.0/datatables.min.css" />
-    <script type="text/javascript"
-        src="https://cdn.datatables.net/v/bs5/jq-3.6.0/dt-1.11.5/date-1.1.2/r-2.2.9/sb-1.3.2/sp-2.0.0/datatables.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="./css/datatables.min.css" />
+    <script type="text/javascript" src="js/datatables.min.js"></script>
 
     <!-- chart.js -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="./js/chart.js"></script>
 
     <link rel="stylesheet" href="style.css">
     <script src="./script.js"></script>
@@ -41,7 +34,7 @@
     </header>
     <script>
         $.get('header.html', function (response) {
-            response = response.replace("${title-text}", "系統儀錶板");
+            response = response.replace("${title-text}", "Toll Plaza");
             $('header').html(response);
             afterGetHeader();
         });
@@ -53,177 +46,192 @@
     </div> -->
     <div class="d-flex position-relative">
         <div class="menu-holder"></div>
-        <section class="position-relative w-100" id="system-main">
+        <section class="position-relative" id="system-main">
             <div class="p-2 px-xl-5 position-relative d-flex flex-column align-items-center w-100">
-                <div class="row justify-content-center align-items-stretch w-100">
-                    <div class="col-xl-6 mb-3">
-                        <div class="card shadow-sm h-100">
-                            <div class="card-body position-relative p-2">
-                                <h5 class="text-primary card-title">場站總覽</h5>
-                                <div class="w-100 d-flex align-items-center justify-content-center">
-                                    <div class="overviewChartOutside">
-                                        <canvas id="overviewChart" style="position: relative;"></canvas>
-                                    </div>
+                <div class="card card-body text-gray-800 px-lg-5 w-100 mb-4">
+                    <div class="row">
+                        <div class="col-md-4 mb-3">
+                            <div class="row align-items-center">
+                                <div class="col-md-12 mb-2">Road Number</div>
+                                <div class="col-md-12">
+                                    <input type="hidden" id="QUERY_SYS_TYPE" name="QUERY_SYS_TYPE">
+                                    <input type="text" id="QUERY_USER_ID" name="QUERY_USER_ID" desc="員工代號"
+                                        class="form-control" placeholder="" value="">
                                 </div>
-                                <table id="dollarTable" class="table table-striped">
-                                    <thead>
-                                        <tr>
-                                            <th>場站</th>
-                                            <th>管理單位</th>
-                                            <th>充電樁數量</th>
-                                            <th>快充數量</th>
-                                            <th>慢充數量</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>民權西</td>
-                                            <td>大同智能</td>
-                                            <td>10</td>
-                                            <td>5</td>
-                                            <td>5</td>
-                                        </tr>
-                                        <tr>
-                                            <td>圓山</td>
-                                            <td>大同智能</td>
-                                            <td>10</td>
-                                            <td>5</td>
-                                            <td>5</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
                             </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <div class="row align-items-center">
+                                <div class="col-md-12 mb-2">Direction</div>
+                                <div class="col-md-12">
+                                    <select id="QUERY_TYPE" name="QUERY_TYPE" class="form-select">
+                                        <option value="0">ALL</option>
+                                        <option value="2">North</option>
+                                        <option value="6">South</option>
+                                        <option value="7">East</option>
+                                        <option value="8">West</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 pt-2" style="text-align: right">
+                            <a href="javascript:void(0);" class="btn btn-primary mx-1" onclick="query();">Inquire</a>
                         </div>
                     </div>
-                    <div class="col-xl-6 mb-3">
-                        <div class="card shadow-sm h-100">
-                            <div class="card-body position-relative p-2">
-                                <h5 class="text-primary card-title">群組總覽</h5>
-                                <div class="w-100 d-flex align-items-center justify-content-center">
-                                    <div class="overviewChartOutside">
-                                        <canvas id="overviewChart2" style="position: relative;"></canvas>
-                                    </div>
-                                </div>
-                                <table id="dollarTable" class="table table-striped">
-                                    <thead>
-                                        <tr>
-                                            <th>群組名稱</th>
-                                            <th>場站</th>
-                                            <th>充電樁數量</th>
-                                            <th>負載限流</th>
-                                            <th>現在負載</th>
-                                            <th>是否告警</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>大同廠區電樁</td>
-                                            <td>民權西</td>
-                                            <td>10</td>
-                                            <td>1500 kW</td>
-                                            <td>300 kW</td>
-                                            <td>否</td>
-                                        </tr>
-                                        <tr>
-                                            <td>花博廠區電樁</td>
-                                            <td>圓山</td>
-                                            <td>10</td>
-                                            <td>1500 kW</td>
-                                            <td>420 kW</td>
-                                            <td>否</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-
-                            </div>
-                        </div>
+                </div>
+                <div class="card shadow-sm px-lg-5 w-100 mb-4 card-body position-relative">
+                    <div class="d-flex justify-content-between mb-3">
+                        <h5 class="card-title text-secondary">Toll Plaza</h5>
+                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">+
+                            Create</button>
+                    </div>
+                    <div class=" overflow-auto">
+                        <table id="dollarTable" class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th style="width: 4rem;"></th>
+                                    <th>Road Number</th>
+                                    <th>Direction</th>
+                                    <th>Sequence No.</th>
+                                    <th>Gateway No.</th>
+                                    <th>Gateway Name</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <button class="btn btn-outline-primary">Modify</button>
+                                    </td>
+                                    <td>...</td>
+                                    <td>...</td>
+                                    <td>...</td>
+                                    <td>...</td>
+                                    <td>...</td>
+                                    <td>...</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <button class="btn btn-outline-primary">Modify</button>
+                                    </td>
+                                    <td>...</td>
+                                    <td>...</td>
+                                    <td>...</td>
+                                    <td>...</td>
+                                    <td>...</td>
+                                    <td>...</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
         </section>
     </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Create Toll Plaza</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body px-4">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <div class="row align-items-center">
+                                <div class="col-md-12 mb-2">Road Number</div>
+                                <div class="col-md-12">
+                                    <input type="hidden" id="QUERY_SYS_TYPE" name="QUERY_SYS_TYPE">
+                                    <input type="text" id="QUERY_USER_ID" name="QUERY_USER_ID" desc="員工代號"
+                                        class="form-control" placeholder="" value="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="row align-items-center">
+                                <div class="col-md-12 mb-2">Direction</div>
+                                <div class="col-md-12">
+                                    <select id="QUERY_TYPE" name="QUERY_TYPE" class="form-select">
+                                        <option value="0">ALL</option>
+                                        <option value="2">North</option>
+                                        <option value="6">South</option>
+                                        <option value="7">East</option>
+                                        <option value="8">West</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="row align-items-center">
+                                <div class="col-md-12 mb-2">Sequence No.</div>
+                                <div class="col-md-12">
+                                    <input type="hidden" id="QUERY_SYS_TYPE" name="QUERY_SYS_TYPE">
+                                    <input type="text" id="QUERY_USER_ID" name="QUERY_USER_ID" desc="員工代號"
+                                        class="form-control" placeholder="" value="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="row align-items-center">
+                                <div class="col-md-12 mb-2">Gateway No.</div>
+                                <div class="col-md-12">
+                                    <input type="hidden" id="QUERY_SYS_TYPE" name="QUERY_SYS_TYPE">
+                                    <input type="text" id="QUERY_USER_ID" name="QUERY_USER_ID" desc="員工代號"
+                                        class="form-control" placeholder="" value="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="row align-items-center">
+                                <div class="col-md-12 mb-2">Gateway Name</div>
+                                <div class="col-md-12">
+                                    <input type="hidden" id="QUERY_SYS_TYPE" name="QUERY_SYS_TYPE">
+                                    <input type="text" id="QUERY_USER_ID" name="QUERY_USER_ID" desc="員工代號"
+                                        class="form-control" placeholder="" value="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="row align-items-center">
+                                <div class="col-md-12 mb-2">Status</div>
+                                <div class="col-md-12">
+                                    <select id="QUERY_TYPE" name="QUERY_TYPE" class="form-select">
+                                        <option value="0">Active</option>
+                                        <option value="0">Disable</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
+                    <button type="button" class="btn btn-primary">Create</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 <script>
+    // DataTable
+    var table = $('#dollarTable').DataTable({
+        initComplete: function () {
+            // Apply the search
+            this.api().columns().every(function () {
+                var that = this;
 
-    const data = {
-        labels: [
-            '民權西',
-            '大同智能'
-        ],
-        datasets: [{
-            label: '場站分布圖',
-            data: [10, 10],
-            backgroundColor: [
-                '#38bdf8',
-                '#22d3ee'
-            ],
-            hoverOffset: 4,
-        }]
-    };
-    const config = {
-        type: 'pie',
-        data: data,
-        options: {
-            responsive: true,
-            plugins: {
-                title: {
-                    display: true,
-                    text: '場站分布'
-                }
-            }
+                $('input', this.footer()).on('keyup change clear', function () {
+                    if (that.search() !== this.value) {
+                        that
+                            .search(this.value)
+                            .draw();
+                    }
+                });
+            });
         }
-    };
-    const overviewChart = new Chart(
-        document.getElementById('overviewChart'),
-        config
-    );
-
-    const data2 = {
-        labels: [
-            '民權西',
-            '大同智能'
-        ],
-        datasets: [{
-            label: '群組分布',
-            data: [6171, 7136],
-            backgroundColor: [
-                '#f87171',
-                '#fb923c'
-            ],
-            hoverOffset: 4,
-        }]
-    };
-    const config2 = {
-        type: 'pie',
-        data: data2,
-        options: {
-            responsive: true,
-            plugins: {
-                title: {
-                    display: true,
-                    text: '現在負載分布'
-                }
-            }
-        }
-    };
-    const overviewChart2 = new Chart(
-        document.getElementById('overviewChart2'),
-        config2
-    );
+    } );
 </script>
-<style>
-    .overviewChartOutside {
-        width: 300px;
-        height: 300px;
-        margin-bottom: 2rem;
-    }
-
-    @media (max-width: 575px) {
-        .overviewChartOutside {
-            width: 50vw;
-            height: 50vw;
-        }
-    }
-</style>
 
 </html>
