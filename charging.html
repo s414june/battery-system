@@ -51,7 +51,9 @@
             response = response.replace("${title-text}", "充電站管理");
             $('header').html(response);
             //預設menu開合(小裝置關)
-            afterGetHeader();
+            if ($(window).width() < 991) {
+                collapseMenu();
+            }
         });
     </script>
     <div class="d-flex w-100">
